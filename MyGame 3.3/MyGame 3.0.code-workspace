@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../MyGame 2.0"
+		},
+		{
+			"path": "../MyGame 4.0"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MyGame 4.0"
+	}
+}

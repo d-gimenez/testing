@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Settings</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/custom-styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Game Settings</h1>
+    <form id="settings-form">
+      <div class="form-group">
+        <label for="session-name">Session Name:</label>
+        <input type="text" id="session-name" name="session-name" required>
+      </div>
+      <div class="form-group">
+        <label for="num-players">Number of Players:</label>
+        <input type="number" id="num-players" name="num-players" min="1" max="10" required>
+      </div>
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("settings-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      var sessionName = document.getElementById("session-name").value;
+      var numPlayers = document.getElementById("num-players").value;
+      
+      //3.3 testing & validation
+      console.log("storing variables...")
+      console.log("session-name --> " + sessionName)
+      console.log("num-players --> " + numPlayers)
+
+      // Store the values in localStorage for later use
+      localStorage.setItem("sessionName", sessionName);
+      localStorage.setItem("numPlayers", numPlayers);
+      
+      // Redirect to settings.html
+      window.location.href = "settings.html";
+    });
+  </script>
+
+</body>
+</html>

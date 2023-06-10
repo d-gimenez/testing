@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Settings</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/custom-styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Game Settings</h1>
+    <form id="settings-form">
+      <div class="form-group">
+        <label for="api-key">API Key:</label>
+        <input type="text" id="api-key" name="api-key" required>
+      </div>
+      <div class="form-group">
+        <label for="image-count">Image Count:</label>
+        <input type="number" id="image-count" name="image-count" min="1" max="10" required>
+      </div>
+      <div class="form-group">
+        <label for="image-size">Image Size:</label>
+        <input type="radio" id="image-size-256" name="image-size" value="256" checked>
+        <label for="image-size-256">256x256</label>
+        <input type="radio" id="image-size-512" name="image-size" value="512">
+        <label for="image-size-512">512x512</label>
+        <input type="radio" id="image-size-1024" name="image-size" value="1024">
+        <label for="image-size-512">1024x1024</label>
+      </div>
+      <button type="submit">Start Game</button>
+    </form>
+  </div>
+
+  <script>
+    // Retrieve the settings from localStorage
+    var sessionName = localStorage.getItem("sessionName");
+    var numPlayers = localStorage.getItem("numPlayers");
+    
+    //3.3 testing & validation
+    console.log("retrieved variables...")
+    console.log("session-name --> " + sessionName)
+    console.log("num-players --> " + numPlayers)
+
+
+    /**
+     * not needed
+     * 
+     // Populate the fields with the retrieved settings
+     document.getElementById("session-name").value = sessionName;
+     document.getElementById("num-players").value = numPlayers; 
+     */
+  
+    document.getElementById("settings-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      var apiKey = document.getElementById("api-key").value;
+      var imageCount = document.getElementById("image-count").value;
+      var imageSize = document.querySelector('input[name="image-size"]:checked').value;
+      
+      // Store the values in localStorage for later use
+      localStorage.setItem("apiKey", apiKey);
+      localStorage.setItem("imageCount", imageCount);
+      localStorage.setItem("imageSize", imageSize);
+
+      //3.3 testing & validation
+      console.log("storing variables...")
+      console.log("apiKey --> " + apiKey)
+      console.log("imageCount --> " + imageCount)
+      console.log("imageSize --> " + imageSize)
+      console.log(typeof imageSize)
+
+      // Redirect to index.html
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+</html>

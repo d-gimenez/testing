@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        <title>Dall-E Webapp Game (3.3)</title>
+
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </header>
+
+    <body>
+        <p>Dall-E Webapp Game</p>
+
+        <!-- 3.3 Removing from index.html
+        <fieldset>
+            <legend>Setup</legend>
+            <div>
+                Please enter your <a href="https://www.youtube.com/watch?v=DFmmiYlbgX0&list=PLx3k0RGeXZ_zs3az0Z2BnpTIPH2lxQfFX&index=4" target="_blank">OpenAI API Key</a>: <input id="api-key" value="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">
+            </div>
+        </fieldset>
+        -->
+
+        <fieldset>
+            <legend>Prompt</legend>
+            <div>
+                <textarea id="text-prompt" rows="4" cols="52"></textarea>
+            </div>
+            
+            <!-- 3.3 Removing from index.html
+            <div>
+                Image count (1-4): <input id="image-count" value="2">
+            </div>
+    
+            <div>
+                Image size:
+            </div>
+    
+            <div>
+                <input type="radio" id="radio-256" name="image-size" value="256" checked>
+                <label for="256">256</label>
+            </div>
+            <div>
+                <input type="radio" id="radio-512" name="image-size" value="512">
+                <label for="512">512</label>
+            </div>
+            <div>
+                <input type="radio" id="radio-1024" name="image-size" value="1024">
+                <label for="1024">1024</label>
+            </div>
+            -->
+            
+            <div>
+                <button id="button-request">Request</button>
+            </div>
+        </fieldset>
+
+        
+
+        <fieldset>
+            <legend>Request Status</legend>
+            <div>
+                <p id="request-status">No request performed yet</p>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Instructions</legend>
+            <div>
+                <p id="instructions">Create a sentence that will generate an image using Dall-E. Each player should provide one word at a time.</p>
+            </div>
+        </fieldset>
+
+        <!--
+        <fieldset>
+            <legend>Images</legend>
+
+            // Response images will be added here
+            <div id="image-container"></div>
+
+        </fieldset>
+        -->
+
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <script>
+            // Retrieve the settings from localStorage
+            var sessionName = localStorage.getItem("sessionName");
+            var numPlayers = localStorage.getItem("numPlayers");
+            var apiKey = localStorage.getItem("apiKey");
+            var imageCount = localStorage.getItem("imageCount");
+            var imageSize = localStorage.getItem("imageSize");
+
+            //3.3 testing & validation
+            console.log("retrieved variables...")
+            console.log("session-name --> " + sessionName)
+            console.log("num-players --> " + numPlayers)
+            console.log("apiKey --> " + apiKey)
+            console.log("imageCount --> " + imageCount)
+            console.log("imageSize --> " + imageSize)
+            console.log(typeof imageSize)
+        
+            /**
+             * not needed
+             * 
+             // Populate the fields with the retrieved settings
+             document.getElementById("api-key").value = apiKey;
+             document.getElementById("image-count").value = imageCount;
+             document.querySelector('input[name="image-size"][value="' + imageSize + '"]').checked = true;
+             *
+             */
+          </script>
+
+        </script>
+    </body>
+</html>
